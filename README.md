@@ -1,9 +1,7 @@
 # BLAKE3
-[![Crystal CI](https://github.com/didactic-drunk/blake3.cr/actions/workflows/crystal.yml/badge.svg)](https://github.com/didactic-drunk/blake3.cr/actions/workflows/crystal.yml)
-[![GitHub release](https://img.shields.io/github/release/didactic-drunk/blake3.cr.svg)](https://github.com/didactic-drunk/blake3.cr/releases)
-![GitHub commits since latest release (by date) for a branch](https://img.shields.io/github/commits-since/didactic-drunk/blake3.cr/latest)
-[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://didactic-drunk.github.io/blake3.cr/master)
-
+[![Crystal CI](https://github.com/GeopJr/blake3.cr/actions/workflows/crystal.yml/badge.svg)](https://github.com/GeopJr/blake3.cr/actions/workflows/crystal.yml)
+[![GitHub release](https://img.shields.io/github/release/GeopJr/blake3.cr.svg)](https://github.com/GeopJr/blake3.cr/releases)
+![GitHub commits since latest release (by date) for a branch](https://img.shields.io/github/commits-since/GeopJr/blake3.cr/latest)
 
 Blake3 using the official [BLAKE3 c](https://github.com/BLAKE3-team/BLAKE3/tree/master/c) implementation.
 
@@ -19,7 +17,7 @@ Blake3 using the official [BLAKE3 c](https://github.com/BLAKE3-team/BLAKE3/tree/
 
 ## Speed
 
-[examples/blake3_hash.cr](https://github.com/didactic-drunk/blake3.cr/blob/master/examples/blake3_hash.cr) 
+[examples/blake3_hash.cr](https://github.com/GeopJr/blake3.cr/blob/main/examples/blake3_hash.cr) 
 is approximately the same speed as [b3sum](https://github.com/BLAKE3-team/BLAKE3#the-b3sum-utility) with 1 thread or mmap disabled.
 
 ## Installation
@@ -29,7 +27,7 @@ is approximately the same speed as [b3sum](https://github.com/BLAKE3-team/BLAKE3
    ```yaml
    dependencies:
      blake3:
-       github: didactic-drunk/blake3.cr
+       github: GeopJr/blake3.cr
    ```
 
 2. Run `shards install`
@@ -59,17 +57,17 @@ digest.update data
 p digest.final.hexstring
 ```
 
-For further API documentation see [Crystal's Digest API](https://crystal-lang.org/api/0.36.1/Digest.html)
+For further API documentation see [Crystal's Digest API](https://crystal-lang.org/api/latest/Digest.html)
 
 ## Contributing
 
-1. Fork it (<https://github.com/didactic-drunk/blake3/fork>)
-2. **Install a formatting check git hook (ln -sf ../../scripts/git/pre-commit .git/hooks)**
-3. Create your feature branch (`git checkout -b my-new-feature`)
-4. Commit your changes (`git commit -am 'Add some feature'`)
-5. Push to the branch (`git push origin my-new-feature`)
-6. Create a new Pull Request
+1. Fork it (<https://github.com/GeopJr/blake3.cr/fork>)
+1. Create your feature branch (`git checkout -b my-new-feature`)
+1. Commit your changes (`git commit -am 'Add some feature'`)
+1. Push to the branch (`git push origin my-new-feature`)
+1. Create a new Pull Request
 
 ## Contributors
 
 - [Didactic Drunk](https://github.com/didactic-drunk) - creator and maintainer
+- [GeopJr](https://github.com/GeopJr) - maintainer of this fork

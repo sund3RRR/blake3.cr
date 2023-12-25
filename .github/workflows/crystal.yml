@@ -1,40 +1,27 @@
-name: Crystal CI
-
+name: CI
 on:
   push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
-
+    branches: [main]
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-    name: "crystal: ${{ matrix.crystal }}, stable: ${{ matrix.stable }}"
-    continue-on-error: ${{ !matrix.stable }}
-    strategy:
-      fail-fast: false
-      matrix:
-        stable: [true]
-        crystal:
-          - 1.0.0
-          - 1.1.0
-          - 1.1.1
-          - 1.2.0
-        include:
-          - crystal: nightly
-            stable: false
-
-    container:
-      image: crystallang/crystal:${{ matrix.crystal }}
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Install dependencies
-      run: shards install && ./build/make.sh
-    - name: Run tests
-      run: crystal spec -Dpreview_mt --order random --error-on-warnings
-    - name: Run bulid
-      run: shards build -Dpreview_mt
-    - name: Run format
-      run: crystal tool format --check
-
+      - name: Download source
+        uses: actions/checkout@v4
+      - name: Install Crystal
+        uses: crystal-lang/install-crystal@v1
+      - name: Install shards
+        run: shards install
+      - name: Check formatting
+        run: crystal tool format; git diff --exit-code
+      - name: Run tests
+        run: crystal spec --order=random
+      - name: Build docs
+        run: crystal docs
+      - name: Push to pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          force_orphan: true
