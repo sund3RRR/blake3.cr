@@ -49,8 +49,8 @@ class Digest::Blake3 < ::Digest
     Lib.update self, data, data.bytesize
   end
 
-  protected def final_impl(data : Bytes) : Nil
-    Lib.final self, data, data.bytesize
+  protected def final_impl(dst : Bytes) : Nil
+    Lib.final self, dst, dst.bytesize
   end
 
   protected def reset_impl : Nil

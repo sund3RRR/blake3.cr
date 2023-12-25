@@ -16,7 +16,7 @@ class Digest::Null < Digest
   def update_impl(data : Bytes) : Nil
   end
 
-  def final_impl(data : Bytes) : Nil
+  def final_impl(dst : Bytes) : Nil
   end
 
   def reset_impl : Nil
