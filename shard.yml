@@ -9,7 +9,7 @@ targets:
 crystal: ">= 0.36.0"
 license: MIT
 scripts:
-  postinstall: "./build/make.sh"
+  postinstall: "cd blake3c && make -f ../build/Makefile && cd .."
 development_dependencies:
   json_mapping:
     github: crystal-lang/json_mapping.cr
