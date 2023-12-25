@@ -1,8 +1,8 @@
----
 name: blake3
-version: 1.1.0
+version: 1.2.0
 authors:
 - Didactic Drunk <1479616+didactic-drunk@users.noreply.github.com>
+- GeopJr <evan@geopjr.dev>
 targets:
   blake3_hash:
     main: examples/blake3_hash.cr
