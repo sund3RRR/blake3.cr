@@ -1,22 +1,22 @@
 require "./spec_helper"
 require "../src/digest/blake3"
-require "json_mapping"
+require "json"
 
 class TestVectors
+  include JSON::Serializable
+
   class Case
-    JSON.mapping(
-      input_len: UInt32,
-      hash: String,
-      keyed_hash: String,
-      derive_key: String,
-    )
+    include JSON::Serializable
+
+    property input_len : UInt32
+    property hash : String
+    property keyed_hash : String
+    property derive_key : String
   end
 
-  JSON.mapping(
-    key: String,
-    context_string: String,
-    cases: Array(Case),
-  )
+  property key : String
+  property context_string : String
+  property cases : Array(Case)
 end
 
 describe Digest::Blake3 do
